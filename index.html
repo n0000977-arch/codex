@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Catch Motion Game</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hud-card">
+        <div class="hud-block">
+          <span class="hud-label">分數</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="hud-block">
+          <span class="hud-label">剩餘時間</span>
+          <strong id="timer">60</strong>
+        </div>
+      </section>
+
+      <section class="hero-copy">
+        <p class="eyebrow">Cute Motion Workout</p>
+        <h1>左右擺頭，接住水果雨</h1>
+        <p id="statusText" class="status-text">
+          按下開始遊戲後開啟鏡頭，用頭部左右移動控制籃子。
+        </p>
+      </section>
+
+      <section class="play-area">
+        <canvas id="gameCanvas" width="960" height="540" aria-label="水果接接樂遊戲畫面"></canvas>
+
+        <div class="camera-frame">
+          <video id="camera" autoplay playsinline muted></video>
+          <div class="camera-label">鏡頭預覽</div>
+        </div>
+
+        <div id="overlay" class="overlay">
+          <div class="overlay-card">
+            <h2 id="overlayTitle">準備開始</h2>
+            <p id="overlayMessage">
+              點擊按鈕後會請求鏡頭權限，記得把臉放進預覽框中。
+            </p>
+            <button id="startButton" class="primary-button" type="button">開始遊戲</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
