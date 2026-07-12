@@ -1,0 +1,202 @@
+:root {
+  --bg-top: #fff5c8;
+  --bg-bottom: #ffd8c2;
+  --panel: rgba(255, 255, 255, 0.85);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+  --ink: #23425c;
+  --accent: #ff7b54;
+  --accent-2: #ffb703;
+  --mint: #7bdcb5;
+  --shadow: 0 18px 40px rgba(166, 93, 64, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Avenir Next", "PingFang TC", "Noto Sans TC", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.45), transparent 25%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+}
+
+.app-shell {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 20px 0 32px;
+}
+
+.hud-card {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.hud-block {
+  min-width: 128px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: var(--panel-strong);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.hud-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+}
+
+.hud-block strong {
+  font-size: 1.6rem;
+}
+
+.hero-copy {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #d45d37;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.08;
+}
+
+.status-text {
+  max-width: 700px;
+  margin: 12px auto 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.play-area {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(180deg, #80d8ff 0%, #c9f1ff 56%, #fff6d8 100%);
+}
+
+.camera-frame {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: min(24vw, 220px);
+  min-width: 140px;
+  padding: 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(8px);
+}
+
+#camera {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #bfd9ea;
+  transform: scaleX(-1);
+}
+
+.camera-label {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(35, 66, 92, 0.22);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-card {
+  width: min(460px, 100%);
+  padding: 28px;
+  border-radius: 24px;
+  background: var(--panel-strong);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.overlay-card h2 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+}
+
+.overlay-card p {
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  cursor: pointer;
+  box-shadow: 0 14px 24px rgba(255, 123, 84, 0.35);
+}
+
+.primary-button:hover {
+  filter: brightness(1.04);
+}
+
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: min(100vw, calc(100vw - 20px));
+    padding-top: 10px;
+  }
+
+  .hud-card {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .camera-frame {
+    left: 10px;
+    top: 10px;
+    width: 138px;
+    padding: 8px;
+  }
+
+  .overlay-card {
+    padding: 22px;
+  }
+}
